@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'users/css/style.css' %}">
+    <title>User Reviews</title>
+</head>
+<body>
+    <div id="wrapper">
+        <div class="header">
+            <div class="right-links">
+                <a href='/books'>Home</a>
+                <a href='/books/add'>Add Book and Review</a>
+                <a href='/logout'>Logout</a>
+            </div>
+        </div>
+        <h1>USER ID: {{user.id}}</h1>
+        <p>Name: {{user.first_name}} {{user.last_name}}</p>
+        <p>Email: {{user.email}}</p>
+        <p>Total Reviews: {{count}}</p>
+        
+        <h3>Posted Reviews on the following books:</h3>
+        {% for book in books %}
+        <p><a href="/books/{{book.id}}">{{book.title}}</a></p>
+        {% endfor %}
+    </div>
+</body>
+</html>
